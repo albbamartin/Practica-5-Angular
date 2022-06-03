@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--
+
+  <div class="example-container">
+
+    <mat-form-field>
+
+      <input matInput #input maxlength="10" placeholder="Introduce tu nombre">
+      <mat-hint>Max 10 caracteres. {{input.value?.length || 0}}/10</mat-hint>
+
+    </mat-form-field>
+
+    <mat-form-field>
+
+      <mat-select placeholder="Seleccciona una opcion">
+
+        <mat-option value="option1">Peras</mat-option>
+        <mat-option value="option2">Manzanas</mat-option>
+        <mat-option value="option3">Pimientos</mat-option>
+
+      </mat-select>
+      
+      <mat-hint>Puedes ver las opciones desplegando la fecha ^</mat-hint>
+
+    </mat-form-field>
+
+    </div>
+
+  -->
+  
+
+  <head>
+    <title>Entrega</title>
+  </head>
+
+  <body>
+
+    <form [formGroup]="user" (ngSubmit)="onSubmit()">
+
+      <label>
+        Nombre:
+        <input type="text" formControlName="inNombre" required minlength="3">
+        
+      </label>
+
+      <br>
+
+      <label>
+        Apellidos:
+        <input type="text" formControlName="inApellidos" required minlength="3">
+      </label>
+
+      <br>
+
+      <label>
+        Edad:
+        <!--<input type="int" formControlName="inEdad">-->
+        <input type="number" id="tentacles" name="tentacles" min="00" max="125" formControlName="inEdad">
+      </label>
+
+      <br>
+
+      <label>
+        DNI:
+        <input type="text" formControlName="inDNI" minlength="9" maxlength="9">
+      </label>
+
+      <br>
+
+      <label>
+        Cumpleaños:
+        <input type="date" formControlName="inCumpleanos">
+      </label>
+  
+        <br>
+
+      <label>
+        Color:
+        <input type="text" formControlName="inColor" required minlength="3">
+      </label>
+    
+      <br>
+
+      <label>
+        Sexo:
+        <select formControlName="inSexo">
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+          <option value="Otro">Otro</option>
+          <option value="No especificado">No especificado</option>
+        </select>
+      </label>
+
+      <br><br>
+
+      <button type="submit" [disabled]="!user.valid">Enviar Datos</button>
+
+    </form>
+
+    <br><br>
+
+    <h1>Registro</h1>
+
+    <div class="alert alert-primary" role="alert" *ngFor="let item of user">
+      {{item}}
+    </div>
+
+  </body>
+
+
+</html>
+
